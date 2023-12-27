@@ -2,16 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group project-Countries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!----Bootstrap download!---> 
+    <title>Group Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<h1>Countries</h1>
-<p>Group members- Jan Ślusarczyk, Solomiia Titova, Magdalena Wachowska</p>
-<img src="my.jpg" >
+<body> <!----formatujemy dane uzywajac bootstrapa--->
+    <h1 class="text-center">Storing API data in table</h1>
+    <h1>Countries</h1>
+    <p>Group members- Jan Ślusarczyk, Solomiia Titova, Magdalena Wachowska</p>
+    <img src="my.jpg" alt="Fotki brak">
+    <div class="container"> <!----adding container fixes width--->
+    <table class="table table-bordered">
+        <thead class="table-dark"> <!----Czarny pasek--->
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">COUNTRY</th>
+            <th scope="col">POPULATION</th>
+            <th scope="col">AREA</th>
+            <th scope="col">LANGUAGES</th>
+            <th scope="col">SEA_ACCESS</th>
+            <th scope="col">IN_EU</th>
+            <th scope="col">PHONE_CODE</th>
+            <th scope="col">CAPITAL</th>
+            <th scope="col">CURRENCY</th>
+            <th scope="col">TIME_ZONE</th>
+            <th scope="col">INDUSTRY</th>
+          </tr>
+        </thead>
+        <tbody id="table_body">
+          
+        </tbody>
+      </table>
+    </div>
 
-<h2>Data</h2>
-
-<h3>Charts</h3>
+    <script src="script.js"></script>
 </body>
 </html>
