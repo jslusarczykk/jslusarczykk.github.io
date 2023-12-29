@@ -12,7 +12,7 @@ fetch("https://my.api.mockaroo.com/data.json?key=75d9d5a0").then((data)=>{
        <td>${values.country}</td>
        <td>${values.population}</td>
        <td>${values.area}</td>
-       <td>${values.languages}</td>
+       <td>${values.language}</td>
        <td>${values.sea_access}</td>
        <td>${values.in_EU}</td>
        <td>${values.phone_code}</td>
@@ -35,10 +35,10 @@ const ctx = document.getElementById('myChart');
 new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Dollar', 'Euro', 'Yuan', 'Hryvna', 'Rupiah ', 'Krona'],
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'The popularity of currency',
+        data: [10, 17, 6, 3, 8, 5],
         borderWidth: 1
       }]
     },
@@ -55,14 +55,16 @@ const ctx2 = document.getElementById('myChart2');
   new Chart(ctx2, {
       type: 'pie',
       data: {
-          labels: ['Red', 'Blue', 'Yellow'],
+          labels: ['English', 'Telugu', 'Ukrainian', 'Chinese', 'Polish'],
           datasets: [{
-              label: 'My First Dataset',
-              data: [300, 50, 100],
+              label: 'The popularity of specific languages',
+              data: [8, 15, 6, 20, 9],
               backgroundColor: [
                   'rgb(255, 99, 132)',
                   'rgb(54, 162, 235)',
-                  'rgb(255, 205, 86)'
+                  'rgb(255, 205, 86)',
+                  'rgb(50, 205,50)',
+                  'rgb(238, 130, 238)'
               ],
               hoverOffset: 4
           }]
