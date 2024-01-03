@@ -1,0 +1,214 @@
+:root {
+  --blue: rgb(139, 177, 201);
+  --dark: rgb(16, 39, 54);
+  --dark_t: rgb(16,39,54, 0.685);
+  --light: rgba(78, 106, 130, 0.685);
+  --table: rgb(176,214,214);
+  --table_hover: rgb(111,170,170);
+
+}
+#container2 {
+  display: flex;
+  width: 1300px;
+  height: 600px;
+  margin-top: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(0, 0, 0, 0.65);
+  background: linear-gradient(to right top, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
+  border-radius: 20px;
+  position: relative;
+  backdrop-filter: blur(4px);
+
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  }
+
+table {
+    width: 100%; /* Optional: Make the table fill the container */
+  }
+tr {
+    text-align: center;
+    font-family: inherit;
+    background-color: var(--table);
+  }
+  
+tr:hover {                                                   /*z tym lekki problem, mozliwe ze trzeba przerobic w javie kolory*/
+    background-color: var(--table_hover);
+  }
+body {
+  background-color: var(--blue);
+  background: linear-gradient(to right top, var(--dark), var(--blue));
+  
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#menu_nawigacyjne {
+  background-color: var(--dark_t);
+  color: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 80px;
+
+}
+
+.odnosniki a {
+  text-align: center;
+  font-size: x-large;
+  font-family: inherit;
+  margin: 0px 60px;
+  margin-top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s all;
+}
+
+.odnosniki a:hover {
+  border-bottom: 2px solid  white;
+  transition: 0.3s all;
+}
+
+/*.cta button {
+  /*text-transform: uppercase;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-family: "URW Chancery L";
+  padding: 12 px 25px;
+
+}*/
+.cta button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #7e97b8;
+  background-color: #e0e8ef;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: rgba(255, 255, 255, 0.333);
+  border-radius: 40px 40px 40px 40px;
+  padding: 16px 24px 16px 28px;
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: 0.4s;
+  box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+  margin-top: 10px;
+ }
+ 
+ .cta button:hover {
+  color: #516d91;
+  background-color: #E5EDF5;
+  box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+ }
+ 
+ .cta button:active {
+  box-shadow: none;
+ }
+
+
+.rating {
+  display: inline-block;
+  margin-left: 46%;
+  margin-bottom: 50px;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  float: right;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.5s;
+}
+
+.rating label:before {
+  content: '\2605';
+  font-size: 30px;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: var(--blue);
+  transition: color 0.3s;
+}
+
+.horizontal_rule {
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+#myChart {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
+}
+
+#myChart2 {
+  margin-top: 50px;
+
+}
+
+.header {
+  margin-left: 50px;
+  font-family: inherit;
+  color: white;
+  font-size: xx-large;
+}
+
+#paragraph {
+  color: white;
+  font-family: inherit;
+  margin-left: 40px;
+  margin-top: 15px;
+}
+
+#header1 {
+  color: white;
+  font-family: inherit;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+#member {
+  color: white;
+  position: relative;
+  margin-top: 130px;
+  margin-left: 50px;
+}
+
+#group_photo {
+  position: absolute;
+  margin-top: 250px;
+  margin-left: 50%;
+}
+
+.bg_icon {
+  position: absolute;
+  margin-top: 330px;
+  margin-left: 60px;
+  transform: rotate(70deg);
+}
