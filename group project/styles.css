@@ -3,6 +3,8 @@
   --dark: rgb(16, 39, 54);
   --dark_t: rgb(16,39,54, 0.685);
   --light: rgba(78, 106, 130, 0.685);
+  --table: rgb(176,214,214);
+  --table_hover: rgb(111,170,170);
 
 }
 #container2 {
@@ -13,8 +15,10 @@
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(0, 0, 0, 0.65);
-  background: linear-gradient(to right top, rgba(0,0,0,0.75), rgba(0,0,0,0.25));
+  background: linear-gradient(to right top, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
   border-radius: 20px;
+  position: relative;
+  backdrop-filter: blur(4px);
 
 }
 .container {
@@ -27,7 +31,15 @@
 table {
     width: 100%; /* Optional: Make the table fill the container */
   }
-
+tr {
+    text-align: center;
+    font-family: inherit;
+    background-color: var(--table);
+  }
+  
+tr:hover {                                                   /*z tym lekki problem, mozliwe ze trzeba przerobic w javie kolory*/
+    background-color: var(--table_hover);
+  }
 body {
   background-color: var(--blue);
   background: linear-gradient(to right top, var(--dark), var(--blue));
@@ -129,7 +141,7 @@ body {
   float: right;
   cursor: pointer;
   color: #ccc;
-  transition: color 0.3s;
+  transition: color 0.5s;
 }
 
 .rating label:before {
@@ -157,6 +169,7 @@ body {
 
 #myChart2 {
   margin-top: 50px;
+
 }
 
 .header {
@@ -173,9 +186,29 @@ body {
   margin-top: 15px;
 }
 
-.graph2{
-  display: none;
-  margin: 5px auto;
-  width: 30%;
-  margin-bottom: 30px;
+#header1 {
+  color: white;
+  font-family: inherit;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+#member {
+  color: white;
+  position: relative;
+  margin-top: 130px;
+  margin-left: 50px;
+}
+
+#group_photo {
+  position: absolute;
+  margin-top: 250px;
+  margin-left: 50%;
+}
+
+.bg_icon {
+  position: absolute;
+  margin-top: 330px;
+  margin-left: 60px;
+  transform: rotate(70deg);
 }
