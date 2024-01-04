@@ -10,11 +10,11 @@ fetch("https://my.api.mockaroo.com/countries.json?key=79c3a9f0").then((data) => 
        <td style="background-color: rgb(176,214,214);">${values.country}</td>
        <td style="background-color: rgb(176,214,214);">${values.population}</td>
        <td style="background-color: rgb(176,214,214);">${values.area}</td>
-       <td style="background-color: rgb(176,214,214);">${values.language}</td>
-       <td style="background-color: rgb(176,214,214);">${values.sea_access}</td>
+       <td style="background-color: rgb(176,214,214);">${values.languages}</td>
+       <td style="background-color: rgb(176,214,214);">${values.see_access}</td>
        <td style="background-color: rgb(176,214,214);">${values.in_EU}</td>
        <td style="background-color: rgb(176,214,214);">${values.phone_code}</td>
-       <td style="background-color: rgb(176,214,214);">${values.capital}</td>
+       <td style="background-color: rgb(176,214,214);">${values.capital_city}</td>
        <td style="background-color: rgb(176,214,214);">${values.currency}</td>
        <td style="background-color: rgb(176,214,214);">${values.time_zone}</td>
        <td style="background-color: rgb(176,214,214);">${values.industry}</td>
