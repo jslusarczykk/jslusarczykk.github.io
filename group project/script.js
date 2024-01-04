@@ -1,13 +1,11 @@
-//non-unique "https://my.api.mockaroo.com/data.json?key=75d9d5a0"
-fetch("https://my.api.mockaroo.com/data.json?key=75d9d5a0").then((data)=>{
-    //console.log(data); json format
-    return data.json(); //converted to object
-}).then((objectData)=>{
-    //console.log(objectData) dziala :PP
+// Fetching API data
+fetch("https://my.api.mockaroo.com/countries.json?key=54c02180").then((data) => {
+    return data.json();
+}).then((objectData) => {
     console.log(objectData[0].country);
-    let tableData=""; //using map method
-    objectData.map((values)=>{
-        tableData+=`<tr>
+    let tableData = "";
+    objectData.map((values) => {
+        tableData += `<tr>
         <td>${values.id}</td>
        <td>${values.country}</td>
        <td>${values.population}</td>
@@ -20,16 +18,12 @@ fetch("https://my.api.mockaroo.com/data.json?key=75d9d5a0").then((data)=>{
        <td>${values.currency}</td>
        <td>${values.time_zone}</td>
        <td>${values.industry}</td>
-     </tr>`; //wystarczy dodac plusa przed rowna sie aby generowalo
+     </tr>`;
     });
-    document.getElementById("table_body").
-    innerHTML=tableData;
-}).catch((err)=>{
-    console.log(err)
-})
-
-//wykresy
-
+    document.getElementById("table_body").innerHTML = tableData;
+}).catch((err) => {
+    console.log(err);
+});
 
 // Function to calculate the frequency of each currency in the data
 function calculateCurrencyFrequency(data) {
@@ -38,33 +32,37 @@ function calculateCurrencyFrequency(data) {
     // Iterate through the data and count occurrences
     data.forEach(entry => {
         const currency = entry.currency;
-
-        // If the currency is not in the frequency map, initialize it with 1, otherwise increment the count
         frequencyMap[currency] = (frequencyMap[currency] || 0) + 1;
     });
 
     return frequencyMap;
 }
 
-// Function to calculate the frequency of each language in the data
-function calculateLanguageFrequency(data) {
-    const frequencyMap = {};
+// Function to calculate the percentage of countries in the EU in the data
+function calculateEuPercentage(data) {
+    const totalEntries = data.length;
+    let euCount = 0;
 
-    // Iterate through the data and count occurrences
+    // Count the number of countries in the EU
     data.forEach(entry => {
-        const language = entry.language;
-
-        // If the language is not in the frequency map, initialize it with 1, otherwise increment the count
-        frequencyMap[language] = (frequencyMap[language] || 0) + 1;
+        if (entry.in_EU) {
+            euCount++;
+        }
     });
 
-    return frequencyMap;
+    const percentageInEu = (euCount / totalEntries) * 100;
+    const percentageNotInEu = 100 - percentageInEu;
+
+    return {
+        inEu: percentageInEu,
+        notInEu: percentageNotInEu
+    };
 }
 
 // Function to fetch data from Mockaroo API
 async function fetchData() {
     try {
-        const response = await fetch('https://my.api.mockaroo.com/data.json?key=75d9d5a0', {
+        const response = await fetch('https://my.api.mockaroo.com/countries.json?key=54c02180', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +80,7 @@ async function fetchData() {
     }
 }
 
-// Function to render the bar chart using Chart.js
+// Function to render the bar chart for currencies using Chart.js
 async function renderBarChart() {
     const data = await fetchData();
     const frequencyMap = calculateCurrencyFrequency(data);
@@ -107,42 +105,63 @@ async function renderBarChart() {
             scales: {
                 y: {
                     beginAtZero: true
+                },
+                x: {
+                    ticks: {
+                        color: 'rgb(255, 255, 255)' // Set label font color to bright white
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        },
+                        color: 'rgb(255, 255, 255)' // Set legend font color to bright white
+                    }
                 }
             }
         }
     });
 }
 
-// Function to render the pie chart using Chart.js
-async function renderPieChart() {
+// Function to render the pie chart for EU membership using Chart.js
+async function renderEuPieChart() {
     const data = await fetchData();
-    const frequencyMap = calculateLanguageFrequency(data);
-
-    // Extract labels and data from the frequency map
-    const labels = Object.keys(frequencyMap);
-    const dataValues = Object.values(frequencyMap);
+    const euPercentage = calculateEuPercentage(data);
 
     // Create a Chart.js dataset
     const ctx = document.getElementById('myChart2').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: labels,
+            labels: ['In EU', 'Not in EU'],
             datasets: [{
-                label: 'The popularity of specific languages',
-                data: dataValues,
+                label: 'EU Membership Percentage',
+                data: [euPercentage.inEu, euPercentage.notInEu],
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)',
-                    'rgb(50, 205, 50)',
-                    'rgb(238, 130, 238)'
+                    'rgb(255, 99, 132)'
                 ],
                 hoverOffset: 4
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        },
+                        color: 'rgb(255, 255, 255)' // Set font color to bright white
+                    }
+                }
+            }
         }
     });
 }
 
+// Call the functions to render both charts
 renderBarChart();
-renderPieChart();
+renderEuPieChart();
